@@ -73,3 +73,92 @@ const miguelito = new Student2({
         "Cloud en azure",
     ],
 });
+
+//VENTAJAS de programacion orientada a objetos
+class Course {
+    constructor({
+        id,
+        name,
+        teacher,
+        lessons=[],
+    }){
+        this.id = id;
+        this.name = name;
+        this.teacher = teacher;
+        this.lessons = lessons;
+    }
+}
+class learningPath {
+    constructor({
+        id,
+        name,
+        courses = [],
+    }){
+        this.id = id;
+        this.name = name;
+        this.courses = courses;
+    }
+
+    addCourse(course){
+        this.courses.push(course);
+    }
+}
+
+const escuelaWeb = new learningPath({
+    name: "Escuela Web",
+    courses: [
+        "Introduccion Html",
+        "Introduccion JS",
+        "Introduccion CSS",
+    ]
+});
+const escuelaData = new learningPath({
+    name: "Escuela DataScience",
+    courses: [
+        "Introduccion Python",
+        "Introduccion Panda",
+        "Introduccion IA",
+    ]
+});
+const escuelaVgs = new learningPath({
+    name: "Escuela Video",
+    courses: [
+        "Introduccion Videos",
+        "Introduccion Fotografia",
+        "Introduccion a Produccion",
+    ]
+});
+class Student3 {
+    constructor({
+        name,
+        email,
+        username,
+        twitter = undefined,
+        instagram = undefined,
+        facebook = undefined,
+        approvedCourses = [],
+        learningPaths = [],
+    }) {
+        this.name = name;
+        this.email = email;
+        this.username = username;
+        this.socialMedia = {
+            twitter,
+            instagram,
+            facebook,
+        }
+        this.approvedCourses = approvedCourses; 
+        this.learningPaths = learningPaths 
+    }
+}
+
+const juan2 = new Student3 ({
+    name: 'JuanDC',
+    username: "juandc",
+    email: "dsf@fsda.com",
+    twitter: "@fdsa",
+    learningPaths:[
+        escuelaWeb,
+        escuelaVgs,
+    ]
+})

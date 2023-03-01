@@ -88,11 +88,18 @@ class Course {
         this.lessons = lessons;
     }
 }
+
+const cursoProgBasica = new Course({
+    name: 'Curso gratis de Programacion bàsica',
+});
+const cursoDefinitivoHTML = new Course({
+    name: 'Curso Definitivo de Html',
+});
+const cursoPracticoHTML = new Course({
+    name: 'Curso práctico de Html',
+});
 class learningPath {
-    constructor({
-        id,
-        name,
-        courses = [],
+    constructor({ id, name, courses = [],
     }){
         this.id = id;
         this.name = name;
@@ -107,14 +114,17 @@ class learningPath {
 const escuelaWeb = new learningPath({
     name: "Escuela Web",
     courses: [
-        "Introduccion Html",
+        cursoProgBasica,
         "Introduccion JS",
         "Introduccion CSS",
+        cursoPracticoHTML
     ]
 });
 const escuelaData = new learningPath({
     name: "Escuela DataScience",
     courses: [
+        cursoProgBasica,
+        cursoPracticoHTML,
         "Introduccion Python",
         "Introduccion Panda",
         "Introduccion IA",
@@ -159,6 +169,17 @@ const juan2 = new Student3 ({
     twitter: "@fdsa",
     learningPaths:[
         escuelaWeb,
+        escuelaVgs,
+    ]
+})
+
+const miguelito2 = new Student3 ({
+    name: 'miguelito',
+    username: 'miki23',
+    email: 'miki23@gmia.com',
+    instagram: '@miki23',
+    learningPaths: [
+        escuelaData,
         escuelaVgs,
     ]
 })

@@ -32,3 +32,20 @@ Todo son objetos en javascript:
 * Prototipo Object()
 
 ## Objetos literales y prototipos en JavaScript
+
+## Abstracción
+
+Es abstraer atributos y metodos que se repiten, crear la clase (prototipo) pqra crear instancias de estas clases.
+
+## Encapsulamiento
+
+Vamos a limitar el acceso a ciertas propiedades y metodoss, no permitir la alteracion de metodos y atributos.
+
+> 💡 En JS no se puede Esconder metodos y atributos, lo que podemos es no permitir la alteracion de atributos y metodos. 
+Como se realiza el encapsulamiento en JS:
+* Getters Y setters
+* Namespaces
+* Object.defineProperties
+* Módulos de ES6
+
+<img src="https://static.platzi.com/media/user_upload/encapsulamiento-d05ab20d-4ea2-4a0d-8b69-0f9f80429042.jpg"/>

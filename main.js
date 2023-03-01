@@ -83,9 +83,21 @@ class Course {
         lessons=[],
     }){
         this.id = id;
-        this.name = name;
+        this._name = name;
         this.teacher = teacher;
         this.lessons = lessons;
+    }
+// GETTER
+    get name(){
+        return this._name;
+    }
+//SETTER
+    set name(nuevoNombreCurso){
+        if(nuevoNombreCurso === "Curso Maldito de Prog Bàsica"){
+            console.error('Web.. no');
+        } else {
+            this._name = nuevoNombreCurso;
+        }
     }
 }
 
@@ -98,6 +110,8 @@ const cursoDefinitivoHTML = new Course({
 const cursoPracticoHTML = new Course({
     name: 'Curso práctico de Html',
 });
+
+cursoProgBasica.name = "new";
 class learningPath {
     constructor({ id, name, courses = [],
     }){

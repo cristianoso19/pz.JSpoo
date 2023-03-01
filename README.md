@@ -49,3 +49,14 @@ Como se realiza el encapsulamiento en JS:
 * Módulos de ES6
 
 <img src="https://static.platzi.com/media/user_upload/encapsulamiento-d05ab20d-4ea2-4a0d-8b69-0f9f80429042.jpg"/>
+
+## Getters y setters
+Qué son los getters y setters
+Una función que obtiene un valor de una propiedad se llama getter y una que establece el valor de una propiedad se llama setter.
+
+Esta característica a sido implementada en ES2015, pudiendo modificar el funcionamiento normal de establecer u obtener el valor de una propiedad, a estas se les conoce como accessor properties.
+
+Funcionamiento
+En ocasiones queremos valores basados en otros valores, para esto los data accessors son bastante útiles.
+
+Para crearlos usamos los keywords get y set

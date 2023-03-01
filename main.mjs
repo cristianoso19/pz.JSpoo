@@ -74,6 +74,31 @@ const miguelito = new Student2({
     ],
 });
 
+// MODULOS
+function videoPlay(id){
+    const urlSecreta = "https://w.platzi.com/"+ id; 
+    console.log("Playing "+urlSecreta);
+}
+
+function videoStop(id){
+    const urlSecreta = "https://w.platzi.com/"+id;
+    console.log("Stoping "+urlSecreta);
+}
+
+export class PlatziClass {
+    constructor({
+        name, videoID,
+    }) {
+        this.name = name;
+        this.videoID = videoID;
+    }
+    reproducir(){
+        videoPlay(this.videoID);
+    }
+    pausar(){
+        videoStop(this.videoID);
+    }
+}
 //VENTAJAS de programacion orientada a objetos
 class Course {
     constructor({

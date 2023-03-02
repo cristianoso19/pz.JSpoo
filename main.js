@@ -85,7 +85,7 @@ function videoStop(id){
     console.log("Stoping "+urlSecreta);
 }
 
-export class PlatziClass {
+class PlatziClass {
     constructor({
         name, videoID,
     }) {
@@ -106,11 +106,15 @@ class Course {
         name,
         teacher,
         lessons=[],
+        isFree = false,
+        lang = "spanish",
     }){
         this.id = id;
         this._name = name;
         this.teacher = teacher;
         this.lessons = lessons;
+        this.isFree = isFree;
+        this.lang = lang;
     }
 // GETTER
     get name(){
@@ -128,9 +132,11 @@ class Course {
 
 const cursoProgBasica = new Course({
     name: 'Curso gratis de Programacion bàsica',
+    isFree: true,
 });
 const cursoDefinitivoHTML = new Course({
     name: 'Curso Definitivo de Html',
+    lang: 'english',
 });
 const cursoPracticoHTML = new Course({
     name: 'Curso práctico de Html',
@@ -177,8 +183,10 @@ const escuelaVgs = new learningPath({
         "Introduccion a Produccion",
     ]
 });
-class Student3 {
-    constructor({
+
+//HERENCIA
+class SuperStudent{
+     constructor({
         name,
         email,
         username,
@@ -200,8 +208,44 @@ class Student3 {
         this.learningPaths = learningPaths 
     }
 }
+class FreeStudent extends SuperStudent {
+  constructor(props){
+    //referencia al constructor de láclase madre
+    super(props);
+  } 
+  approveCours(newCourse) {
+    if (newCourse.isFree){
+        this.approvedCourses.push(newCourse);
+    } else {
+        console.warn("Lo sentimos; " + this.name + ", Solo puedes tomar cursos abiertos");
+    }
 
-const juan2 = new Student3 ({
+  }
+}
+
+class BasicStudent extends SuperStudent{
+  constructor(props){
+    super(props);
+  }
+  approveCours(newCourse) {
+    if (newCourse.lang !== "english"){
+        this.approvedCourses.push(newCourse);
+    } else {
+        console.warn("Lo sentimos; " + this.name + ", No puedes tomar cursos en ingles");
+    }
+
+  } 
+}
+
+class ExpertStudent extends SuperStudent{
+   constructor(props){
+    super(props);
+  }
+  approveCours(newCourse) {
+    this.approvedCourses.push(newCourse);
+  }
+}
+const juan2 = new FreeStudent ({
     name: 'JuanDC',
     username: "juandc",
     email: "dsf@fsda.com",
@@ -212,7 +256,7 @@ const juan2 = new Student3 ({
     ]
 })
 
-const miguelito2 = new Student3 ({
+const miguelito2 = new BasicStudent ({
     name: 'miguelito',
     username: 'miki23',
     email: 'miki23@gmia.com',

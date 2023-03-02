@@ -91,3 +91,12 @@ import {PlatziClass, Student, LearningPaths} from '/ruta';
 ## Herencia
 La herencia nos permiten crear un molde general "Super Class" para que la comparta con las clases hijas
 la palabra reservada es `extends`
+
+## Polimorfismo
+
+Le permite a nuestras subclases cambiar o anular los methodos y atributos de una superclase
+Tipos de polimorfismo:
+* Sobrecarga
+* Parametrico
+* Inclusion
+JS solo nos permite el polimorfismo de inclusion de momento, esto nos permite sobre escribir los metodos y atributos de la superclase

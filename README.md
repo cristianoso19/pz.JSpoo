@@ -88,3 +88,6 @@ import {PlatziClass, Student, LearningPaths} from '/ruta';
 ```javascript
 <script type="module" src="main.js"></script>
 ```
+## Herencia
+La herencia nos permiten crear un molde general "Super Class" para que la comparta con las clases hijas
+la palabra reservada es `extends`

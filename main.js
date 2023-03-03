@@ -73,6 +73,25 @@ const miguelito = new Student2({
         "Cloud en azure",
     ],
 });
+//POLIMORFISMO
+class Comment {
+    constructor({
+        content,
+        studentName,
+        studentRol = "estudiante",
+    }) {
+        this.content = content;
+        this.studentName = studentName;
+        this.studentRol = studentRol;
+        this.likes = 0;
+    }
+
+    publicar() {
+        console.log(this.studentName + "(" + this.studentRol + ")");
+        console.log(this.likes + "likes");
+        console.log(this.content);
+    }
+}
 
 // MODULOS
 function videoPlay(id){
@@ -205,9 +224,35 @@ class SuperStudent{
             facebook,
         }
         this.approvedCourses = approvedCourses; 
-        this.learningPaths = learningPaths 
+        this.learningPaths = learningPaths; 
+    }
+    publicarComentario(commentContent){
+        const comment = new Comment({
+            content: commentContent,
+            studentName: this.name,
+        });
+        comment.publicar();
     }
 }
+
+class TeacherStudent extends SuperStudent {
+    constructor(props) {
+        super(props);
+    }
+    approveCours(newCourse) {
+        this.approvedCourses.push(newCourse);
+    }
+    publicarComentario(commentContent) {
+        const comment = new Comment({
+            content: commentContent,
+            studentName: this.name,
+            studentRol: "profesor",
+        });
+        comment.publicar();
+    }
+}
+
+
 class FreeStudent extends SuperStudent {
   constructor(props){
     //referencia al constructor de láclase madre
@@ -245,6 +290,15 @@ class ExpertStudent extends SuperStudent{
     this.approvedCourses.push(newCourse);
   }
 }
+const freddy = new TeacherStudent ({
+    name: 'Freedy Vega',
+    username: "fvega",
+    email: "dsf@fsda.com",
+    twitter: "@fdsa",
+    instagram: "@fdsa",
+    
+});
+
 const juan2 = new FreeStudent ({
     name: 'JuanDC',
     username: "juandc",
